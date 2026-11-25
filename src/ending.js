@@ -67,6 +67,7 @@ if (root) {
     const lines = [
       'MI PRIMER PROYECTO: ' + concept.name.toUpperCase(),
       'Una idea para crear con tu equipo después de la exposición BRUMA.',
+      'BRUMA · Diseño y desarrollo por Famiitry.',
       '', 'EL RETO', concept.challenge,
       '', '1. DISEÑA TU MARCA', 'Elige un nombre, dos colores y a quién le vas a vender. Dibuja cómo se verá tu página.',
       '', '2. PROGRAMA TU TIENDA', 'Empieza con tres productos. Cada uno necesita un nombre, una imagen y un precio. Crea botones para añadir, quitar y calcular el total.',

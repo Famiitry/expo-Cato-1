@@ -81,7 +81,7 @@ function textTexture(text, { color = '#403447', background = null, subtitle = ''
   const c = document.createElement('canvas'); c.width = 1024; c.height = 512; const ctx = c.getContext('2d');
   if (background) { ctx.fillStyle = background; ctx.fillRect(0, 0, 1024, 512); }
   ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = color;
-  const brand = text === 'bruma.';
+  const brand = text === 'bruma.' || text === 'Famiitry';
   if (brand) {
     let fontSize = size * 1.75;
     ctx.font = '400 ' + fontSize + 'px WindSong';
@@ -97,6 +97,14 @@ function textTexture(text, { color = '#403447', background = null, subtitle = ''
 function sign(parent, text, w, h, x, y, z, options = {}) {
   const material = new THREE.MeshStandardMaterial({ map: textTexture(text, options), transparent: !options.background, roughness: .65, side: THREE.DoubleSide });
   return mesh(new THREE.PlaneGeometry(w, h), material, parent, x, y, z, false);
+}
+function authorPlaque(parent, x, y, z, scale = 1) {
+  const plaque = new THREE.Group(); plaque.position.set(x, y, z); plaque.scale.setScalar(scale); parent.add(plaque);
+  box(plaque, 1.52, .55, .055, M.brass, 0, 0, 0, .045);
+  box(plaque, 1.46, .49, .018, M.purpleDark, 0, 0, .035, .035);
+  sign(plaque, 'Famiitry', 1.34, .43, 0, .015, .048, { color: '#f4eee1', size: 220, subtitle: 'DISEÑO Y DESARROLLO' });
+  for (const side of [-1, 1]) ball(plaque, M.brass, side * .67, 0, .052, .018, .018, .007);
+  return plaque;
 }
 function island(parent, radius = 6.4, color = M.sand) {
   const shape = new THREE.Shape(); const n = 96;
@@ -302,6 +310,13 @@ export function buildFarm() {
   for (let i = 0; i < 8; i++) box(g, 1.2, .09, .16, M.wood, -4.7, .22 + Math.sin(i / 7 * Math.PI) * .08, .2 + i * .17, .025);
   for (const side of [-1, 1]) { rod(g, [-5.3, .26, .2 + (side + 1) * .55], [-5.3, .7, .2 + (side + 1) * .55], .025, M.wood); rod(g, [-4.1, .26, .2 + (side + 1) * .55], [-4.1, .7, .2 + (side + 1) * .55], .025, M.wood); }
   tree(g, -3.8, -2.7, 1.35); tree(g, 3.5, 2.7, 1.05); tree(g, -.9, -4, .85);
+  // A timber creator sign beside the foreground tree, facing the camera path.
+  const creatorSign = new THREE.Group(); creatorSign.position.set(2.3, .02, 3.8); creatorSign.rotation.y = .38; g.add(creatorSign);
+  for (const x of [-.58, .58]) box(creatorSign, .075, 1.18, .075, M.wood, x, .59, 0, .015);
+  box(creatorSign, 1.72, .76, .11, M.wood, 0, 1.1, 0, .065);
+  box(creatorSign, 1.6, .64, .024, M.cream, 0, 1.1, .068, .035);
+  sign(creatorSign, 'Famiitry', 1.48, .59, 0, 1.11, .085, { color: '#66516f', size: 230, subtitle: 'DISEÑO Y DESARROLLO' });
+  for (const x of [-.71, .71]) ball(creatorSign, M.brass, x, 1.1, .087, .022, .022, .01);
   person(g, .6, 2.05, { scale: .83, rotation: -.8, pose: 'garden' }); person(g, -2.7, .3, { scale: .78, rotation: 1.5, pose: 'garden', color: M.cloth });
   basket(g, 1.2, .08, 2.6, 1, true); basket(g, -2.3, .12, .65, .8, true);
   const path = []; for (let i = 0; i < 19; i++) path.push([1.25 + Math.sin(i * .2) * .5, .04, -.05 + i * .23]); stones(g, path, .4);
@@ -336,6 +351,7 @@ export function buildWorkshop() {
   const table = new THREE.Group(); table.position.set(.7, .2, .7); g.add(table);
   box(table, 3.7, 1.1, 1.3, M.purple, 0, .6, 0, .1); box(table, 3.9, .16, 1.48, M.stone, 0, 1.22, 0, .06);
   for (let i = 0; i < 30; i++) box(table, .045, .83, .045, M.purpleDark, -1.7 + i * .118, .6, .67, .01);
+  authorPlaque(table, -.15, .61, .735);
   for (const x of [-1, -.3, .4]) { cylinder(table, .15, .11, .2, M.cream, x, 1.39, .18); ring(table, .15, .014, M.brass, x, 1.5, .18); }
   const bowl = mesh(new THREE.LatheGeometry([new THREE.Vector2(.15, 0), new THREE.Vector2(.32, .08), new THREE.Vector2(.4, .3), new THREE.Vector2(.37, .31), new THREE.Vector2(.29, .1), new THREE.Vector2(.15, .04)], 32), M.purpleDark, table, .95, 1.3, 0);
   rod(table, [.85, 1.38, 0], [1.3, 1.85, .1], .03, M.wood);
@@ -395,7 +411,13 @@ export function buildShop() {
   cafeTable(g, 2.2, 3.05); cafeTable(g, -3.7, .8, true);
   tree(g, 4, -.8, 1.1); tree(g, -4.2, -2.5, 1);
   for (const x of [-2.85, 2.8]) { box(g, .7, .4, .65, M.purple, x, .35, 1.85, .07); plant(g, x, .55, 1.85, 1.2, M.purple); }
-  const board = new THREE.Group(); board.position.set(.25, .22, 2.5); board.rotation.y = -.18; g.add(board); const face = box(board, .65, 1.05, .06, M.wood, 0, .65, 0, .035); face.rotation.x = -.12; box(board, .55, .9, .025, M.purpleDark, 0, .65, .046); sign(board, 'Tu pausa', .52, .65, 0, .7, .065, { color: '#f4efe5', subtitle: 'EMPIEZA AQUÍ', size: 110 }); rod(board, [-.25, .05, -.35], [-.25, 1.1, 0], .025, M.wood); rod(board, [.25, .05, -.35], [.25, 1.1, 0], .025, M.wood);
+  const board = new THREE.Group(); board.position.set(.25, .22, 2.5); board.rotation.y = -.18; g.add(board);
+  const face = box(board, .65, 1.05, .06, M.wood, 0, .65, 0, .035); face.rotation.x = -.12;
+  box(board, .55, .9, .025, M.purpleDark, 0, .65, .046);
+  sign(board, 'CREADO POR', .48, .18, 0, .97, .065, { color: '#d9c8df', size: 60 });
+  sign(board, 'Famiitry', .54, .29, 0, .74, .067, { color: '#f4efe5', size: 240 });
+  sign(board, 'DISEÑO Y CÓDIGO', .48, .17, 0, .5, .065, { color: '#d9c8df', size: 50 });
+  rod(board, [-.25, .05, -.35], [-.25, 1.1, 0], .025, M.wood); rod(board, [.25, .05, -.35], [.25, 1.1, 0], .025, M.wood);
   const path = []; for (let i = 0; i < 13; i++) for (let j = 0; j < 3; j++) path.push([-2.5 + i * .4, .02, 3.75 + j * .3]); stones(g, path, .29);
   return g;
 }
@@ -416,7 +438,8 @@ function bike(parent, x, z) {
   ring(g, .15, .014, M.steel, .05, .62, .05, false).rotation.y = Math.PI / 2; rod(g, [0, .62, .05], [.22, .5, .05], .018, M.steel); box(g, .16, .045, .1, M.iron, .23, .49, .05);
   box(g, .12, .36, .34, M.iron, 0, .85, .08, .03);
   box(g, .95, .6, .7, M.purple, 0, 1.05, .97, .075); box(g, 1.02, .065, .78, M.purpleDark, 0, 1.37, .97, .025);
-  const logo = sign(g, 'bruma.', .75, .4, .49, 1.12, .97, { color: '#f4efe5', size: 140 }); logo.rotation.y = Math.PI / 2;
+  const logo = sign(g, 'Famiitry', .7, .4, .49, 1.1, .97, { color: '#f4efe5', size: 190, subtitle: 'DISEÑO Y DESARROLLO' }); logo.rotation.y = Math.PI / 2;
+  sign(g, 'Famiitry', .82, .43, 0, 1.1, 1.329, { color: '#f4efe5', size: 190 });
   for (const px of [-.2, .2]) { box(g, .26, .37, .26, M.cloth, px, 1.59, .95, .025); ring(g, .06, .008, M.darkWood, px, 1.83, .95, false); }
   contact(g, 0, .1, 2, 3.2, .24); return g;
 }

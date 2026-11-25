@@ -2,6 +2,8 @@
 
 Tienda 3D independiente creada para Expo Colegio. Todo el recorrido se modela y renderiza con Three.js: no hay videos, modelos descargados ni imágenes externas en las escenas. Este repositorio contiene únicamente el proyecto BRUMA.
 
+**Diseño y desarrollo: Famiitry.** Su firma aparece al pie de la página, en la guía descargable y en los carteles de autor de las escenas 3D.
+
 ## Abrir
 
 ~~~bash
