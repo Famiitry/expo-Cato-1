@@ -8,9 +8,11 @@
     "dev": "node serve.mjs",
     "start": "node serve.mjs",
     "vendor": "node tools/vendor.mjs",
-    "check": "node --check src/world.js && node --check src/models.js && node --check src/motion.js && node --check src/app.js",
+    "check": "node --check src/world.js && node --check src/models.js && node --check src/motion.js && node --check src/app.js && node --check src/ending.js",
     "verify": "node tools/verify.mjs",
-    "render": "node tools/render.mjs"
+    "verify:ending": "node tools/verify-ending.mjs",
+    "render": "node tools/render.mjs",
+    "render:ending": "node tools/render-ending.mjs"
   },
   "dependencies": { "three": "0.170.0" },
   "devDependencies": { "playwright": "1.56.1" },

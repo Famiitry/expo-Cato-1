@@ -1,4 +1,5 @@
 import { createWorld } from './world.js';
+import './ending.js';
 
 const money = value => new Intl.NumberFormat('es-EC', { style: 'currency', currency: 'USD' }).format(value / 100);
 const products = {

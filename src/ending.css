@@ -1,0 +1,106 @@
+/* Exhibition ending: a concrete, playable invitation to build a real project. */
+.venture{--venture-bg:#233d33;--venture-text:#f7f3e7;--venture-muted:#c0ccba;--venture-lime:#c6d99f;position:relative;background:var(--venture-bg);color:var(--venture-text);padding:90px clamp(24px,6vw,108px) 0;overflow:hidden;font-family:'DM Sans',Arial,sans-serif;isolation:isolate;scroll-margin-top:90px}
+.venture::before{content:'';position:absolute;width:550px;height:550px;right:-270px;bottom:80px;border:1px solid #b5c49b20;border-radius:50%;pointer-events:none;z-index:-1;box-shadow:0 0 0 65px #b5c49b08,0 0 0 130px #b5c49b06}
+.venture-inner{max-width:1280px;margin:auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(45px,7vw,100px);align-items:center}
+.venture-kicker{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:.17em;line-height:1.5;color:var(--venture-lime);margin:0 0 26px}
+.venture-kicker>span{width:7px;height:7px;border-radius:50%;background:var(--venture-lime)}
+.venture-copy h2{font:500 clamp(72px,7.5vw,112px)/.89 var(--serif);letter-spacing:-.045em;margin:0 0 28px;color:var(--venture-text)}
+.venture-copy h2 em{color:var(--venture-lime);font-weight:400}
+.venture-lede{font-size:16px;line-height:1.7;max-width:385px;color:var(--venture-muted);margin:0 0 26px}
+.venture-lede strong{font-weight:500;color:var(--venture-text)}
+.venture-promise{display:flex;align-items:center;gap:16px;padding-top:24px;border-top:1px solid #d1dfc52b;max-width:410px;margin-bottom:30px}
+.venture-promise>svg{width:40px;height:40px;flex-shrink:0;stroke:var(--venture-lime);stroke-width:1.2}
+.venture-promise p{font-size:14px;line-height:1.65;margin:0;color:var(--venture-text)}
+.venture-promise p span{font-size:12px;color:var(--venture-muted)}
+.venture-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.venture-download{display:inline-flex;align-items:center;justify-content:center;gap:24px;min-height:54px;padding:14px 22px;background:var(--venture-lime);color:#20352c;border:1px solid transparent;border-radius:6px;font:500 14px/1.4 'DM Sans',Arial,sans-serif;transition:background-color 180ms ease,transform 140ms var(--ease-out)}
+.venture-download svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5}
+.venture-code{display:flex;align-items:center;gap:14px;min-height:48px;font-size:13px;color:var(--venture-text);border-bottom:1px solid #c6d99f50}
+.venture-code>span{font-size:20px;color:var(--venture-lime)}
+.venture-download-hint{font-size:11px;line-height:1.6;color:var(--venture-muted);margin:12px 0 0}
+.venture-announcement{color:var(--venture-lime);font-size:12px;line-height:1.6;min-height:20px;max-width:400px;margin:12px 0 0}
+.venture-playground{min-width:0;padding-bottom:4px}
+.venture-playground-heading{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:16px}
+.venture-playground-heading>p{font-size:17px;font-weight:500;margin:0}
+.venture-playground-heading>span{font-size:12px;color:var(--venture-lime);display:flex;align-items:center;gap:10px}
+.venture-playground-heading svg{width:28px;height:24px;fill:none;stroke:currentColor;stroke-width:1.3}
+.venture-switch{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:22px}
+.venture-switch button{display:flex;align-items:center;justify-content:center;gap:9px;min-height:48px;padding:10px 8px;border:1px solid #c6d99f4a;border-radius:6px;background:#ffffff05;color:#e1e9d8;font:400 13px/1.4 'DM Sans',Arial,sans-serif;transition:background-color 180ms ease,color 180ms ease,border-color 180ms ease}
+.venture-switch button[aria-pressed="true"]{background:var(--venture-text);border-color:var(--venture-text);color:#233d33}
+.venture-switch svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.3;flex-shrink:0}
+.venture-browser{position:relative;border:1px solid #ffffff35;border-radius:13px;background:#fcfaf5;box-shadow:0 24px 70px #07190f50;overflow:hidden;color:#26382f}
+.venture-browser-bar{height:38px;padding:0 15px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#efeee7;border-bottom:1px solid #dddcd4}
+.venture-browser-dots{display:flex;gap:5px}.venture-browser-dots i{width:6px;height:6px;border-radius:50%;background:#c2c3b7}.venture-browser-dots i:first-child{background:#d5b1a2}
+.venture-browser-bar>span:nth-child(2){display:flex;align-items:center;gap:6px;font-size:10px;color:#777d70}
+.venture-browser-bar>span:nth-child(2)>svg{width:10px;height:11px;fill:none;stroke:currentColor;stroke-width:1.1}
+.venture-browser-more{font-size:22px;line-height:1;color:#8f9286}
+.venture-shop{--shop-accent:#4d6342;--shop-tint:#e6eadc;padding:20px 24px 14px;min-height:535px;background:#fcfaf5}
+.venture-shop[data-concept="bakery"]{--shop-accent:#8e5b36;--shop-tint:#efe3d1}
+.venture-shop[data-concept="tech"]{--shop-accent:#655a8e;--shop-tint:#e8e3ef}
+.venture-shop-top{display:flex;align-items:center;justify-content:space-between;gap:16px;height:42px}
+.venture-shop-brand{font:400 43px/1.1 WindSong,cursive;color:var(--shop-accent);padding-right:8px}
+.venture-shop[data-concept="tech"] .venture-shop-brand{font:500 30px/1.2 'DM Sans',Arial,sans-serif;letter-spacing:-.07em}
+.venture-shop-bag{display:flex;align-items:center;gap:8px;padding:7px 10px;border:1px solid #d8d9cd;border-radius:22px;font-size:11px}
+.venture-shop-bag svg{width:15px;height:16px;fill:none;stroke:currentColor;stroke-width:1.2}.venture-shop-bag b{font-weight:400;min-width:10px;text-align:center}
+.venture-shop-heading{padding:16px 0 19px}
+.venture-shop-heading h3{font:500 32px/1.1 var(--serif);letter-spacing:-.025em;color:#302d32;margin:0 0 7px}
+.venture-shop-heading>p{font-size:12px;line-height:1.5;color:#73756a;margin:0}
+.venture-products{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.venture-product{min-width:0;background:#fff;border:1px solid #e9e7de;border-radius:7px;overflow:hidden}
+.venture-product-image{height:170px;background:var(--shop-tint);overflow:hidden}
+.venture-product-image img{width:100%;height:100%;object-fit:cover;display:block;mix-blend-mode:multiply}
+.venture-shop[data-concept="cafe"] .venture-product-image img{object-fit:contain;transform:scale(1.08)}
+.venture-product-details{padding:12px}
+.venture-product-details h4{font:500 14px/1.4 'DM Sans',Arial,sans-serif;color:#34372f;margin:0 0 3px}
+.venture-product-details p{font-size:10px;line-height:1.5;color:#77776b;margin:0 0 12px}
+.venture-product-details>div{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.venture-product-details strong{font-size:13px;font-weight:500}
+.venture-product-details button{display:flex;align-items:center;justify-content:center;gap:8px;min-height:36px;padding:6px 10px;border:1px solid #d5d6c9;border-radius:4px;background:white;font:500 10px/1.4 'DM Sans',Arial,sans-serif;color:#434b37;transition:background-color 180ms ease,color 180ms ease}
+.venture-product-details button>span{font-size:17px;line-height:1}
+.venture-product-details button[data-added="true"]{background:var(--shop-accent);color:white;border-color:var(--shop-accent)}
+.venture-checkout{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:16px;padding:14px;background:var(--shop-tint);border-radius:6px}
+.venture-checkout>div{display:flex;flex-direction:column;gap:4px}
+.venture-checkout>div>span{font-size:10px;color:#69725d}
+.venture-checkout>div>strong{font-size:20px;line-height:1.2;font-weight:500;letter-spacing:-.03em;color:#2c3c2e}
+.venture-checkout>button{display:flex;align-items:center;justify-content:center;gap:18px;min-height:43px;border:0;border-radius:4px;background:var(--shop-accent);color:white;padding:11px 15px;font-size:11px;transition:opacity 180ms ease}
+.venture-checkout>button:disabled{opacity:.45}
+.venture-checkout>button>span{font-size:17px}
+.venture-shop-status{font-size:10px;line-height:1.5;color:#67755e;margin:9px 0 0;min-height:30px}
+.venture-demo-label{font-size:9px;line-height:1.5;color:#77796f;margin:10px 0 0;padding-top:10px;border-top:1px solid #e7e4db}
+.venture-caption{display:flex;gap:14px;align-items:flex-start;margin:20px 0 0 16px;color:var(--venture-muted)}
+.venture-caption>span{font:400 34px/1 var(--serif);color:var(--venture-lime);transform:rotate(-10deg)}
+.venture-caption>p{font-size:12px;line-height:1.6;margin:0}
+.venture-caption strong{font-weight:500;color:var(--venture-text)}
+.venture-receipt{min-height:423px;padding:30px 14px 22px;text-align:center}
+.venture-receipt-check{display:grid;place-items:center;width:56px;height:56px;background:var(--shop-tint);color:var(--shop-accent);border-radius:50%;margin:0 auto 19px}
+.venture-receipt-check svg{width:29px;height:29px;fill:none;stroke:currentColor;stroke-width:1.5}
+.venture-receipt-kicker{font-size:9px;letter-spacing:.13em;color:#75806b;margin:0 0 16px}
+.venture-receipt h3{font:500 42px/.95 var(--serif);letter-spacing:-.03em;margin:0 0 17px;color:#303c2e}
+.venture-receipt>p:not(.venture-receipt-kicker){font-size:12px;line-height:1.7;color:#717a68;max-width:340px;margin:0 auto 20px}
+.venture-receipt-total{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;background:var(--shop-tint);border-radius:5px;font-size:12px;margin:0 0 18px}
+.venture-receipt-total strong{font-size:20px;font-weight:500}
+.venture-receipt>button{min-height:44px;display:inline-flex;align-items:center;gap:24px;padding:10px 16px;border:1px solid #c9d0bc;border-radius:5px;background:none;font-size:12px}
+.venture-path{max-width:1280px;margin:55px auto 0;padding:30px 0 36px;display:grid;grid-template-columns:1.05fr 1fr 24px 1fr 24px 1.1fr;gap:24px;align-items:center;border-top:1px solid #d1dfc52b}
+.venture-path-intro{display:flex;flex-direction:column;gap:8px}
+.venture-path-intro>span{font-size:9px;letter-spacing:.13em;color:var(--venture-lime)}
+.venture-path-intro>strong{font:500 24px/1.1 var(--serif);color:var(--venture-text)}
+.venture-path>div:not(.venture-path-intro){display:flex;align-items:center;gap:12px}
+.venture-path>div>svg{width:23px;height:25px;flex-shrink:0;fill:none;stroke:var(--venture-lime);stroke-width:1.2}
+.venture-path>div>p{display:flex;flex-direction:column;gap:5px;margin:0}
+.venture-path strong{font-size:13px;font-weight:500;line-height:1.4}
+.venture-path p span{font-size:10px;line-height:1.5;color:var(--venture-muted)}
+.venture-path-arrow{color:#a3b68d;font-size:20px;text-align:center}
+.venture button:focus-visible,.venture a:focus-visible{outline-color:var(--venture-lime);outline-offset:5px}
+.venture-shop button:focus-visible,.venture-receipt:focus-visible{outline-color:var(--shop-accent);outline-offset:4px}
+.venture-download:active{transform:scale(.98)}
+.venture-product-details button{min-height:44px}
+.venture-path .venture-path-intro>strong{font:500 24px/1.1 var(--serif)}
+.venture-path p span{font-size:12px}
+.footer{padding-top:34px;padding-bottom:34px}.footer p{font-family:'DM Sans',Arial,sans-serif;font-size:12px;line-height:1.7}.footer .demo-disclosure{font-size:11px;max-width:340px}.footer .back-top{font-size:12px;gap:16px}
+@media(hover:hover) and (pointer:fine){.venture-download:hover{background:#dce9bc}.venture-switch button:not([aria-pressed="true"]):hover{background:#ffffff13;border-color:#c6d99f99}.venture-code:hover{color:var(--venture-lime)}.venture-product-details button:hover{background:var(--shop-tint)}.venture-checkout>button:not(:disabled):hover{opacity:.85}}
+@media(min-width:1800px){.venture{padding-top:110px;padding-bottom:5px}.venture-inner{max-width:1440px;gap:130px}.venture-copy h2{font-size:128px}.venture-lede{font-size:18px;max-width:425px}.venture-path{max-width:1440px}.venture-product-image{height:205px}.venture-shop{padding:25px 30px 18px}.venture-shop-heading h3{font-size:38px}.venture-product-details h4{font-size:16px}}
+@media(max-width:1050px){.venture{padding-left:35px;padding-right:35px}.venture-inner{gap:35px;grid-template-columns:.87fr 1.13fr}.venture-copy h2{font-size:88px}.venture-lede{font-size:14px}.venture-actions{gap:14px}.venture-download{font-size:13px;gap:18px}.venture-code{font-size:12px}.venture-shop{padding:18px}.venture-product-image{height:150px}.venture-product-details{padding:10px}.venture-product-details>div{flex-wrap:wrap}.venture-switch button{font-size:11px;gap:6px}.venture-playground-heading>p{font-size:15px}.venture-path{gap:14px;grid-template-columns:1fr 1fr 16px 1fr 16px 1fr}.venture-path-intro>strong{font-size:20px}.venture-path>div:not(.venture-path-intro){gap:8px}.venture-path strong{font-size:11px}.venture-path p span{font-size:9px}}
+@media(max-width:760px){.venture{padding:58px 24px 0}.venture-inner{grid-template-columns:1fr;gap:38px;max-width:540px}.venture-copy h2{font-size:clamp(78px,14vw,100px);line-height:.9;margin-bottom:24px}.venture-kicker{font-size:10px;margin-bottom:22px}.venture-lede{font-size:15px;max-width:420px;margin-bottom:22px}.venture-promise{padding-top:19px;margin-bottom:22px;max-width:none}.venture-promise p{font-size:13px}.venture-promise p span{font-size:11px}.venture-actions{gap:22px}.venture-download{font-size:13px;min-height:51px}.venture-code{font-size:12px}.venture-download-hint{font-size:11px}.venture-announcement{margin-bottom:0}.venture-playground-heading>p{font-size:16px}.venture-playground-heading>span{font-size:11px;gap:5px}.venture-switch{gap:6px;margin-bottom:16px}.venture-switch button{font-size:11px;padding:10px 6px;gap:6px;min-height:46px}.venture-switch svg{width:17px;height:17px}.venture-browser-bar{padding:0 12px}.venture-browser-bar>span:nth-child(2){font-size:9px}.venture-shop{padding:16px;min-height:520px}.venture-shop-heading h3{font-size:30px}.venture-shop-heading>p{font-size:11px}.venture-products{gap:10px}.venture-product-image{height:158px}.venture-product-details{padding:10px}.venture-product-details h4{font-size:13px}.venture-product-details p{font-size:9px;margin-bottom:10px}.venture-product-details>div{flex-wrap:wrap;gap:7px}.venture-product-details button{min-height:40px;font-size:10px;padding:6px 9px}.venture-product-details strong{font-size:12px}.venture-checkout{padding:12px;margin-top:14px;gap:12px}.venture-checkout>button{min-height:44px}.venture-shop-status{font-size:10px}.venture-demo-label{font-size:9px}.venture-caption{margin-top:18px;margin-left:7px}.venture-path{max-width:540px;grid-template-columns:1fr;gap:23px;margin-top:38px;padding:26px 0 32px}.venture-path-intro{gap:5px}.venture-path-intro>strong{font-size:25px}.venture-path>div:not(.venture-path-intro){gap:16px}.venture-path>div>svg{width:26px;height:27px}.venture-path strong{font-size:14px}.venture-path p span{font-size:12px}.venture-path-arrow{display:none}.footer p{font-size:11px}.footer .demo-disclosure{font-size:10px;max-width:none}.footer .back-top{font-size:10px}.venture-receipt{min-height:430px;padding:28px 7px}.venture-receipt h3{font-size:38px}}
+@media(max-width:390px){.venture{padding-left:20px;padding-right:20px}.venture-copy h2{font-size:80px}.venture-actions{gap:15px}.venture-download{padding:13px 17px;gap:17px}.venture-code{font-size:11px;gap:9px}.venture-playground-heading>p{font-size:14px}.venture-switch button{font-size:10px;gap:5px}.venture-switch svg{width:16px}.venture-shop{padding:14px}.venture-product-image{height:145px}.venture-product-details p{min-height:27px}.venture-product-details>div{align-items:flex-start;gap:8px}.venture-product-details button{width:100%;justify-content:space-between}.venture-product-details h4{font-size:12px}.venture-checkout>button{font-size:10px;gap:10px}.venture-demo-label{font-size:8px}}
+@media(max-width:760px){.venture-product-details button{min-height:44px}.venture-shop-heading{min-height:110px}.venture-path .venture-path-intro>strong{font-size:25px}}
+@media(prefers-reduced-motion:reduce){.venture button,.venture a{transition:none}.venture-download:active{transform:none}}

@@ -11,6 +11,7 @@
   <link rel="preload" href="assets/fonts/windsong-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/brand-font.css">
   <link rel="stylesheet" href="src/style.css">
+  <link rel="stylesheet" href="src/ending.css">
   <script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
 </head>
 <body>
@@ -82,7 +83,61 @@
       </div>
       <div class="collection-footer"><p>Una carta de ejemplo para una idea que puede ser tuya.</p><span>Precios ilustrativos en USD · Sin cobros reales</span></div>
     </section>
-    <section class="possibilities section-pad" aria-labelledby="possibilities-title"><div class="possibility-intro"><p class="eyebrow">DE UNA IDEA A ALGO QUE SE PUEDE USAR</p><h2 id="possibilities-title">¿Y si la próxima<br>tienda fuera <em>la tuya?</em></h2><p>Una cafetería, una panadería o la tienda de tu barrio. La misma idea: contar su historia y hacer más fácil comprar.</p><a class="button secondary" href="#como-funciona">Descubre qué puedes crear <span aria-hidden="true">↗</span></a></div><div class="system-map" id="como-funciona"><div><span>01</span><h3>Una marca con historia</h3><p>Un recorrido que muestra lo que hace especial a un negocio.</p></div><div><span>02</span><h3>Un catálogo propio</h3><p>Productos, imágenes, opciones y precios que puedes adaptar.</p></div><div><span>03</span><h3>De la bolsa al pedido</h3><p>Un carrito que calcula el total y prepara un pedido de prueba.</p></div><div><span>04</span><h3>Tu siguiente proyecto</h3><p>Diseño, programación y un equipo con ganas de construirlo.</p></div></div></section>
+    <section class="venture" id="tu-proyecto" aria-labelledby="venture-title">
+      <div class="venture-inner">
+        <div class="venture-copy">
+          <p class="venture-kicker"><span aria-hidden="true"></span> AHORA TE TOCA CREAR</p>
+          <h2 id="venture-title">Tu idea.<br>Tu tienda.<br><em>Tu código.</em></h2>
+          <p class="venture-lede">Lo que viste con BRUMA también puede ser la tienda de tu barrio. <strong>O el próximo proyecto de tu equipo.</strong></p>
+          <div class="venture-promise">
+            <svg viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="5" y="8" width="34" height="27" rx="4"/><path d="M5 16h34M11 12h1m4 0h1m4 0h1m-8 10-4 4 4 4m16-8 4 4-4 4m-5-10-4 12"/></svg>
+            <p>Una marca, un catálogo y un pedido.<br><span>Tres cosas reales que puedes aprender a construir.</span></p>
+          </div>
+          <div class="venture-actions">
+            <button class="venture-download" id="venture-download">Llévate tu idea <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 16v4h14v-4"/></svg></button>
+            <a class="venture-code" href="https://github.com/Famiitry/expo-cole-1-" target="_blank" rel="noopener noreferrer">Explorar el código <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="venture-download-hint">Descarga una guía para crear la tienda que elijas.</p>
+          <p class="venture-announcement" id="venture-announcement" role="status" aria-live="polite"></p>
+        </div>
+        <div class="venture-playground">
+          <div class="venture-playground-heading"><p>¿Qué te gustaría crear?</p><span>Elige y prueba <svg viewBox="0 0 28 24" aria-hidden="true"><path d="M2 5c14-5 17 4 17 13m-6-5 6 6 6-6"/></svg></span></div>
+          <div class="venture-switch" role="group" aria-label="Elige un tipo de negocio">
+            <button type="button" data-venture="cafe" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h13v6a6 6 0 0 1-12 0V8Zm13 1h2a3 3 0 0 1 0 6h-2M3 21h16M8 3v2m5-3v3"/></svg>Cafetería</button>
+            <button type="button" data-venture="bakery" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18C0 13 7 4 14 4s10 5 6 9l-6 6c-3 3-7 2-10-1Zm4-9 3 3m1-6 3 3m1-4 3 3M4 14l3 3"/></svg>Panadería</button>
+            <button type="button" data-venture="tech" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13v-2a8 8 0 0 1 16 0v2M4 12H3v8h4v-8H4Zm16 0h1v8h-4v-8h3Z"/></svg>Tecnología</button>
+          </div>
+          <div class="venture-browser">
+            <div class="venture-browser-bar" aria-hidden="true"><span class="venture-browser-dots"><i></i><i></i><i></i></span><span><svg viewBox="0 0 16 16"><path d="M4 7V5a4 4 0 0 1 8 0v2M3 7h10v7H3Z"/></svg>Así podría verse tu tienda</span><span class="venture-browser-more">···</span></div>
+            <div class="venture-shop" id="venture-shop">
+              <div class="venture-shop-top"><span class="venture-shop-brand" id="venture-shop-brand">bruma.</span><span class="venture-shop-bag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14l1 14H4L5 7Zm3 1V6a4 4 0 0 1 8 0v2"/></svg><b id="venture-cart-count" aria-label="Productos en el pedido de ejemplo">0</b></span></div>
+              <div id="venture-catalog">
+                <div class="venture-shop-heading"><h3 id="venture-shop-title">Tu pausa, a un clic.</h3><p id="venture-shop-description">Elige algo rico. Prepara tu pequeño momento.</p></div>
+                <div class="venture-products" id="venture-products"></div>
+                <div class="venture-checkout"><div><span>Tu pedido de ejemplo</span><strong id="venture-total">$0,00</strong></div><button id="venture-checkout" type="button" disabled>Confirmar <span aria-hidden="true">↗</span></button></div>
+                <p class="venture-shop-status" id="venture-shop-status" role="status" aria-live="polite">Prueba a añadir un producto a tu pedido.</p>
+              </div>
+              <div class="venture-receipt" id="venture-receipt" hidden tabindex="-1">
+                <span class="venture-receipt-check" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="m8 16 6 6 11-13"/></svg></span>
+                <p class="venture-receipt-kicker">IDEA → TIENDA → PEDIDO</p><h3>¡Y así empieza<br>algo tuyo!</h3>
+                <p id="venture-receipt-message"></p><div class="venture-receipt-total"><span>Total de la prueba</span><strong id="venture-receipt-total"></strong></div>
+                <button type="button" id="venture-restart">Probar otra vez <span aria-hidden="true">↺</span></button>
+              </div>
+              <p class="venture-demo-label">Ejemplo interactivo para la exposición. Sin compras reales.</p>
+            </div>
+          </div>
+          <div class="venture-caption"><span aria-hidden="true">↳</span><p>Ya sabes cómo se siente comprar.<br><strong>Ahora imagina aprender a construirlo.</strong></p></div>
+        </div>
+      </div>
+      <div class="venture-path" aria-label="Tu ruta para empezar">
+        <div class="venture-path-intro"><span>EL SIGUIENTE PASO</span><strong>Hazlo con tu equipo.</strong></div>
+        <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 3 6 6L9 21H3v-6L15 3Zm-3 3 6 6M3 17l4 4"/></svg><p><strong>Diseña la marca.</strong><span>Nombre, colores y una buena idea.</span></p></div>
+        <span class="venture-path-arrow" aria-hidden="true">→</span>
+        <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 6-6 6 6 6m10-12 6 6-6 6m-3-15-4 18"/></svg><p><strong>Programa la tienda.</strong><span>Productos, precios y un carrito.</span></p></div>
+        <span class="venture-path-arrow" aria-hidden="true">→</span>
+        <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v16H4V5Zm4 0V2h8v3m-8 8 3 3 5-6"/></svg><p><strong>Haz tu primer pedido.</strong><span>Prueba, mejora y preséntalo.</span></p></div>
+      </div>
+    </section>
     <footer class="footer"><a class="brand" href="#inicio"><span>bruma.</span></a><p>Un pequeño mundo de té.<br>Un gran punto de partida.</p><p class="demo-disclosure">Marca conceptual creada para esta exposición.<br>Los pedidos son una demostración y no se envían a una tienda real.</p><a href="#inicio" class="back-top">Volver al origen <span aria-hidden="true">↑</span></a></footer>
   </main>
   <dialog id="cart-dialog" class="cart-dialog" aria-labelledby="cart-title"><div class="cart-shell"><header class="cart-header"><div><p class="eyebrow">TU PEQUEÑO MOMENTO</p><h2 id="cart-title">Tu bolsa<span>.</span></h2></div><button class="icon-button" id="close-cart" aria-label="Cerrar bolsa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button></header><div id="cart-items" class="cart-items"></div><div id="cart-summary" class="cart-summary"><div class="cart-total"><span>Total</span><strong id="cart-total">$0,00</strong></div><p class="cart-hint">Sin cobros reales. Este pedido es una demostración.</p><form id="order-form"><label for="customer-name">¿A nombre de quién?</label><input id="customer-name" name="customer" placeholder="Tu nombre" maxlength="60" required autocomplete="given-name"><fieldset class="fulfillment"><legend>¿Cómo lo prefieres?</legend><label><input type="radio" name="fulfillment" value="Recoger en tienda" checked> Recoger en tienda</label><label><input type="radio" name="fulfillment" value="Para llevar"> Para llevar</label></fieldset><button class="button primary checkout" type="submit">Crear pedido de prueba <span aria-hidden="true">↗</span></button></form></div><div class="order-success" id="order-success" hidden><span class="success-mark" aria-hidden="true">✓</span><p class="eyebrow">IDEA CONVERTIDA EN PEDIDO</p><h3>¡Tu pausa está en marcha!</h3><p id="order-message"></p><div id="order-ticket" class="order-ticket"></div><p class="cart-hint">Esta es una simulación. No se cobró ni se envió información a ningún negocio.</p><button class="button secondary" id="new-order">Seguir explorando</button></div></div></dialog>

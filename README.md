@@ -26,6 +26,7 @@ Puede ejecutarse por separado; no necesita el menú de Expo Colegio ni los otros
 - Carrito con cantidades, eliminación de productos, total y persistencia local.
 - Nombre, modalidad de recogida y confirmación de un pedido de prueba.
 - Vistas para escritorio, móvil y movimiento reducido. Si WebGL falla, el catálogo y el carrito continúan funcionando.
+- Un cierre interactivo con ejemplos de cafetería, panadería y tecnología: permite elegir productos, probar un pedido y descargar una guía específica para construir esa tienda con un equipo.
 
 BRUMA es una marca conceptual. Los precios y pedidos son ilustrativos; no se cobran ni se envían pedidos reales. La dirección de arte toma como referencia los dioramas del video, pero esta es una nueva implementación con geometría propia.
 
@@ -39,6 +40,7 @@ BRUMA es una marca conceptual. Los precios y pedidos son ilustrativos; no se cob
 | src/world.js | Cámara, luces, sombras y agrupación de geometrías |
 | src/motion.js | Caída y balanceo de hojas instanciadas |
 | src/app.js | Sabores, catálogo, carrito y pedidos de demostración |
+| src/ending.js y src/ending.css | Simulador de negocios y guía descargable del cierre |
 | assets/ | Marca, fuentes e imágenes renderizadas |
 | vendor/ | Three.js 0.170.0 y utilidades locales |
 
@@ -56,11 +58,14 @@ Con el servidor abierto en otra terminal:
 npm run check
 npm run render
 npm run verify
+npm run verify:ending
 ~~~
 
 `render` genera tres fotografías de producto y los cinco escenarios con el mismo motor que utiliza la página. Los JPG del catálogo se guardan en assets/; las demás capturas, en .renders/.
 
 `verify` comprueba los cinco capítulos en cuatro tamaños de pantalla, cambio de sabor, totales, persistencia, confirmación, movimiento reducido y funcionamiento del catálogo sin WebGL. Bloquea las peticiones externas durante las pruebas principales.
+
+`verify:ending` comprueba los tres negocios del cierre en cinco tamaños, los totales, el pedido de ejemplo, las guías descargadas y el aislamiento respecto al carrito principal. Las imágenes nuevas de panadería y tecnología se modelan en tools/ending-studio.js; se vuelven a renderizar con `npm run render:ending`.
 
 Puedes especificar otro servidor con `BRUMA_URL=http://127.0.0.1:3011 npm run verify` y un navegador con `BROWSER_PATH=/ruta/al/navegador`.
 
