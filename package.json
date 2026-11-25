@@ -1,0 +1,18 @@
+{
+  "name": "bruma-mundo-3d",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Una tienda de té inmersiva, modelada y renderizada en código",
+  "scripts": {
+    "dev": "node serve.mjs",
+    "start": "node serve.mjs",
+    "vendor": "node tools/vendor.mjs",
+    "check": "node --check src/world.js && node --check src/models.js && node --check src/motion.js && node --check src/app.js",
+    "verify": "node tools/verify.mjs",
+    "render": "node tools/render.mjs"
+  },
+  "dependencies": { "three": "0.170.0" },
+  "devDependencies": { "playwright": "1.56.1" },
+  "engines": { "node": ">=20" }
+}

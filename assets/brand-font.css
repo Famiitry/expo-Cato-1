@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'WindSong';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/windsong-latin.woff2') format('woff2');
+}
